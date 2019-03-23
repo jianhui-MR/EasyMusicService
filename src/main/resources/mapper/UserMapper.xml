@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="rex.service.Mapper.UserMapper" >
+
+    <select id="getLoginUserInfo" parameterType="java.lang.String" resultType="rex.service.Bean.User">
+        select *
+        from user
+        WHERE Account=#{account,jdbcType=VARCHAR} AND Password = #{password,jdbcType=VARCHAR}
+    </select>
+
+    <insert id="addUser" parameterType="java.lang.String">
+        insert
+        into user(Account,Password,name,email)
+        values(#{account,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},
+        #{name,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="modifyPassword">
+        update user
+        set Password= #{password,jdbcType=VARCHAR}
+        where Account= #{account,jdbcType=VARCHAR}
+    </update>
+
+    <select id="getUserEmail" resultType="java.lang.String">
+        select email
+        from user
+        where Account= #{account,jdbcType=VARCHAR}
+    </select>
+
+    <update id="setUserHeadSculpture">
+        update user
+        set headSculpture=#{headSculpture,jdbcType=VARCHAR}
+        where Account= #{account,jdbcType=VARCHAR}
+    </update>
+
+    <select id="getUserHeadSculpture" resultType="java.lang.String">
+        select headSculpture
+        from user
+        where Account= #{account,jdbcType=VARCHAR}
+    </select>
+
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="rex.service.Mapper.FavouriteMusicMapper" >
+    <resultMap id="getRecentlySongs" type="rex.service.Bean.Song">
+
+    </resultMap>
+
+    <insert id="addFavouriteMusic">
+        INSERT
+        INTO favouriteMusic(songId,songName,singer,userAccount,coverUrl,audioUrl,lrcUrl,album)
+        values (#{songId,jdbcType=INTEGER},#{songName,jdbcType=VARCHAR},
+                #{singer,jdbcType=VARCHAR},#{userAccount,jdbcType=VARCHAR},
+                #{coverUrl,jdbcType=VARCHAR},
+                #{audioUrl,jdbcType=VARCHAR},#{lrcUrl,jdbcType=VARCHAR},
+                #{album,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="getFavouriteMusic" resultType="rex.service.Bean.Song">
+        SELECT *
+        FROM favouriteMusic
+        where userAccount=#{userAccount,jdbcType=VARCHAR}
+        order by time desc
+        limit 100
+    </select>
+
+    <delete id="deleteFavouriteMusic">
+        DELETE
+        FROM favouriteMusic
+        where userAccount=#{userAccount,jdbcType=VARCHAR} AND songId=#{songId,jdbcType=INTEGER}
+    </delete>
+
+    <select id="isFavouriteMusic" resultType="rex.service.Bean.Song">
+        select *
+        from favouriteMusic
+        where userAccount=#{userAccount,jdbcType=VARCHAR} AND songId=#{songId,jdbcType=INTEGER}
+    </select>
+
+
+</mapper>
