@@ -15,7 +15,7 @@ public interface SongListMapper {
     List<Song> getTypeSongList(int typeId);
 
     //添加歌曲到一个歌单
-    void addTypeSongList(int typeId,int songId,String songName,String singer,String coverUrl,String audioUrl,String lrcUrl, String album);
+    void addTypeSongList(int typeId,int songId,String songName,String singer,String coverUrl,String audioUrl,String lrcUrl, String album,long time);
 
     //从歌单里删除歌曲
     void deleteTypeSongList(int typeId,int songId);

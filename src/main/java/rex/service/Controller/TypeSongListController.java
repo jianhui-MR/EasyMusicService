@@ -17,7 +17,7 @@ public class TypeSongListController {
     @Autowired
     SongListService service;
 
-    @RequestMapping("/addSongList")
+    @RequestMapping("/addToSongList")
     public JSONObject addSongList(@RequestParam("typeId")int typeId, @RequestParam("songId") int songId,
                                   @RequestParam("songName") String songName,@RequestParam("singer") String singer,
                                   @RequestParam("coverUrl") String coverUrl,@RequestParam("audioUrl") String audioUrl,
@@ -26,14 +26,14 @@ public class TypeSongListController {
         return service.addTypeSongList(typeId,songId,songName,singer,coverUrl,audioUrl,lrcUrl,album);
     }
 
-    @RequestMapping("/deleteSongList")
+    @RequestMapping("/deleteFromSongList")
     public JSONObject deleteSongList(@RequestParam("typeId")int typeId, @RequestParam("songId") int songId)
     {
         return service.deleteTypeSongList(typeId,songId);
     }
 
     @RequestMapping("/getSongList")
-    public JSONObject deleteSongList(@RequestParam("typeId")int typeId)
+    public JSONObject getSongList(@RequestParam("typeId")int typeId)
     {
         return service.getTypeSongList(typeId);
     }

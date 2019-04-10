@@ -29,7 +29,6 @@ public class RecentlyPlayedController {
                                             @RequestParam("coverUrl") String coverUrl,@RequestParam("audioUrl") String audioUrl,@RequestParam("lrcUrl") String lrcUrl,@RequestParam("album") String album)
     {
         service.deleteRecentlyPlayerSong(userAccount,songId);
-        int time= (int) System.currentTimeMillis();
         System.out.println("songId:"+songId);
         System.out.println("songName:"+songName);
         System.out.println("singer:"+singer);
@@ -38,7 +37,7 @@ public class RecentlyPlayedController {
         System.out.println("audioUrl:"+lrcUrl);
         System.out.println("coverUrl"+coverUrl);
         System.out.println("album"+album);
-        return service.addRecentlyPlayedSong(songId,userAccount,songName,singer,time,coverUrl,audioUrl,lrcUrl,album);
+        return service.addRecentlyPlayedSong(songId,userAccount,songName,singer,coverUrl,audioUrl,lrcUrl,album);
     }
 
 }

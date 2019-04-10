@@ -40,7 +40,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
 
             <!--增加exclusions后移除了springBoot中内置的tomcat-->
-           <exclusions>
+            <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-tomcat</artifactId>
@@ -117,6 +117,4 @@
             </resource>
         </resources>
     </build>
-
-
 </project>

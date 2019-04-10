@@ -23,4 +23,13 @@ public class Type {
 
     int typeId;
     String type;
+    String coverUrl;
+
+    public String getCoverUrl() {
+        return coverUrl;
+    }
+
+    public void setCoverUrl(String coverUrl) {
+        this.coverUrl = coverUrl;
+    }
 }

@@ -41,7 +41,8 @@ public class FavouriteMusicService {
     public JSONObject addFavouriteMusic(int songId, String userAccount, String songName, String singer, String albumUrl, String audioUrl, String lrcUrl, String album) {
         JSONObject jsonObject = new JSONObject();
         try {
-            mapper.addFavouriteMusic(songId, userAccount, songName, singer, albumUrl, audioUrl, lrcUrl, album);
+            long time= System.currentTimeMillis();
+            mapper.addFavouriteMusic(songId, userAccount, songName, singer, albumUrl, audioUrl, lrcUrl, album,time);
             jsonObject.put("status", 0);
             return jsonObject;
         } catch (Exception e) {

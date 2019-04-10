@@ -11,7 +11,7 @@
         INTO recentlyPlayed(songId,songName,singer,userAccount,time,coverUrl,audioUrl,lrcUrl,album)
         values (#{songId,jdbcType=INTEGER},#{songName,jdbcType=VARCHAR},
                 #{singer,jdbcType=VARCHAR},#{userAccount,jdbcType=VARCHAR},
-                #{time,jdbcType=INTEGER},#{coverUrl,jdbcType=VARCHAR},
+                #{time,jdbcType=BIGINT},#{coverUrl,jdbcType=VARCHAR},
                 #{audioUrl,jdbcType=VARCHAR},#{lrcUrl,jdbcType=VARCHAR},
                 #{album,jdbcType=VARCHAR})
     </insert>

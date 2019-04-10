@@ -21,6 +21,10 @@ public interface TypeMapper {
     //修改自定义列表名字
     void updateType(int typeId,String type);
 
+    String getTypeCoverUrl(int typeId);
+
     //获取自定义列表名称
     List<Type> getType(String userAccount);
+
+    int getLastTypeId();
 }

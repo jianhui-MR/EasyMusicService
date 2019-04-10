@@ -43,12 +43,12 @@ public class RecentlyPlayedService {
      * @param userAccount 用户账号
      * @param songName 歌名
      * @param singer 歌手
-     * @param time 时间戳
      * @return
      */
-    public JSONObject addRecentlyPlayedSong(int songId,String userAccount,String songName,String singer,int time,String albumUrl,String audioUrl,String lrcUrl,String album)
+    public JSONObject addRecentlyPlayedSong(int songId,String userAccount,String songName,String singer,String albumUrl,String audioUrl,String lrcUrl,String album)
     {
         JSONObject jsonObject=new JSONObject();
+        long time= System.currentTimeMillis();
         try{
             mapper.addRecentlyPlayedSong(songId,userAccount,songName,singer,time,albumUrl,audioUrl,lrcUrl,album);
             jsonObject.put("status",0);

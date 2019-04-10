@@ -12,7 +12,7 @@ public interface FavouriteMusicMapper {
     List<Song> getFavouriteMusic(String userAccount);
 
     //增加用户最近播放的歌曲
-    void addFavouriteMusic(int songId,String userAccount,String songName,String singer,String coverUrl,String audioUrl,String lrcUrl,String album);
+    void addFavouriteMusic(int songId,String userAccount,String songName,String singer,String coverUrl,String audioUrl,String lrcUrl,String album,long time);
 
     //删除用户最近播放的指定歌曲
     void deleteFavouriteMusic(String userAccount,int songId);

@@ -8,12 +8,11 @@
 
     <insert id="addFavouriteMusic">
         INSERT
-        INTO favouriteMusic(songId,songName,singer,userAccount,coverUrl,audioUrl,lrcUrl,album)
+        INTO favouriteMusic(songId,songName,singer,userAccount,coverUrl,audioUrl,lrcUrl,album,time)
         values (#{songId,jdbcType=INTEGER},#{songName,jdbcType=VARCHAR},
                 #{singer,jdbcType=VARCHAR},#{userAccount,jdbcType=VARCHAR},
-                #{coverUrl,jdbcType=VARCHAR},
-                #{audioUrl,jdbcType=VARCHAR},#{lrcUrl,jdbcType=VARCHAR},
-                #{album,jdbcType=VARCHAR})
+                #{coverUrl,jdbcType=VARCHAR},#{audioUrl,jdbcType=VARCHAR},
+                #{lrcUrl,jdbcType=VARCHAR},#{album,jdbcType=VARCHAR},#{time,jdbcType=BIGINT})
     </insert>
 
     <select id="getFavouriteMusic" resultType="rex.service.Bean.Song">
@@ -21,7 +20,6 @@
         FROM favouriteMusic
         where userAccount=#{userAccount,jdbcType=VARCHAR}
         order by time desc
-        limit 100
     </select>
 
     <delete id="deleteFavouriteMusic">

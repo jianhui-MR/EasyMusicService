@@ -38,7 +38,8 @@ public class SongListService {
     {
         JSONObject jsonObject=new JSONObject();
         try{
-            mapper.addTypeSongList(typeId,songId,songName,singer,coverUrl,audioUrl,lrcUrl,album);
+            long time= System.currentTimeMillis();
+            mapper.addTypeSongList(typeId,songId,songName,singer,coverUrl,audioUrl,lrcUrl,album,time);
             jsonObject.put("status",0);
         }catch (Exception e)
         {

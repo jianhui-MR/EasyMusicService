@@ -23,4 +23,19 @@
         where typeId=#{typeId,jdbcType=INTEGER}
     </update>
 
+    <select id="getTypeCoverUrl" resultType="java.lang.String">
+        select coverUrl
+        from songList
+        where typeId=#{typeId,jdbcType=INTEGER}
+        order by time desc
+        limit 1
+    </select>
+
+    <select id="getLastTypeId" resultType="java.lang.Integer">
+        select typeId
+        from type
+        order by typeId desc
+        limit 1
+    </select>
+
 </mapper>

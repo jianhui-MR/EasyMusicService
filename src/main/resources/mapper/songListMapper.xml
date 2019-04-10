@@ -4,17 +4,18 @@
 <mapper namespace="rex.service.Mapper.SongListMapper" >
     <insert id="addTypeSongList">
         insert
-        into songlist(typeId,songId,songName,singer,coverUrl,lrcUrl,audioUrl,album)
+        into songlist(typeId,songId,songName,singer,coverUrl,lrcUrl,audioUrl,album,time)
         values (#{typeId,jdbcType=INTEGER},#{songId,jdbcType=INTEGER},#{songName,jdbcType=VARCHAR},
                 #{singer,jdbcType=VARCHAR},#{coverUrl,jdbcType=VARCHAR},
-                #{audioUrl,jdbcType=VARCHAR},#{lrcUrl,jdbcType=VARCHAR},
-                #{album,jdbcType=VARCHAR})
+                #{lrcUrl,jdbcType=VARCHAR},#{audioUrl,jdbcType=VARCHAR},
+                #{album,jdbcType=VARCHAR},#{time,jdbcType=BIGINT})
     </insert>
 
     <select id="getTypeSongList" resultType="rex.service.Bean.Song">
         select *
         from songlist
         where typeId=#{typeId,jdbcType=INTEGER}
+        order by time desc
     </select>
 
     <delete id="deleteTypeSongList">

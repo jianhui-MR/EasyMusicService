@@ -24,8 +24,11 @@ public class TypeService {
         JSONObject jsonObject=new JSONObject();
         try{
             mapper.addType(userAccount,type);
+            int typeId=mapper.getLastTypeId();
             jsonObject.put("status",0);
+            jsonObject.put("typeId",typeId);
         }catch (Exception e){
+            e.printStackTrace();
             jsonObject.put("status",1);
         }
         return jsonObject;
@@ -66,8 +69,11 @@ public class TypeService {
             for (Type t : list)
             {
                 JSONObject object=new JSONObject();
+                String coverUrl;
+                coverUrl=mapper.getTypeCoverUrl(t.getTypeId());
                 object.put("type",t.getType());
                 object.put("typeId",t.getTypeId());
+                object.put("coverUrl",coverUrl);
                 jsonArray.add(object);
             }
             jsonObject.put("typeList",jsonArray);
