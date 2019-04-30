@@ -1,12 +1,12 @@
-package rex.service.Service;
+package rex.service.service;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import rex.service.Util.SongListUtil;
-import rex.service.Bean.Song;
-import rex.service.Mapper.FavouriteMusicMapper;
+import rex.service.util.SongListUtil;
+import rex.service.bean.Song;
+import rex.service.mapper.FavouriteMusicMapper;
 
 import java.util.List;
 

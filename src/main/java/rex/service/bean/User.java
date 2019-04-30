@@ -1,4 +1,4 @@
-package rex.service.Bean;
+package rex.service.bean;
 
 /**
  * @author MRJH

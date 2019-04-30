@@ -1,6 +1,6 @@
-package rex.service.Mapper;
+package rex.service.mapper;
 
-import rex.service.Bean.Type;
+import rex.service.bean.Type;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

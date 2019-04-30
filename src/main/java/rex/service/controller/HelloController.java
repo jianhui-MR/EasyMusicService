@@ -1,4 +1,4 @@
-package rex.service.Controller;
+package rex.service.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

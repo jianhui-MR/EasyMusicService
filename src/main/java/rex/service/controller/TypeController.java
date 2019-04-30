@@ -1,6 +1,6 @@
-package rex.service.Controller;
+package rex.service.controller;
 
-import rex.service.Service.TypeService;
+import rex.service.service.TypeService;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,8 +1,8 @@
-package rex.service.Service;
+package rex.service.service;
 
-import rex.service.Util.SongListUtil;
-import rex.service.Bean.Song;
-import rex.service.Mapper.RecentlyPlayedMapper;
+import rex.service.util.SongListUtil;
+import rex.service.bean.Song;
+import rex.service.mapper.RecentlyPlayedMapper;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;

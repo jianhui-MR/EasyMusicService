@@ -1,11 +1,11 @@
-package rex.service.Controller;
+package rex.service.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import rex.service.Service.FavouriteMusicService;
+import rex.service.service.FavouriteMusicService;
 
 import static java.lang.System.out;
 

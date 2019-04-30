@@ -1,7 +1,7 @@
-package rex.service.Service;
+package rex.service.service;
 
-import rex.service.Bean.Type;
-import rex.service.Mapper.TypeMapper;
+import rex.service.bean.Type;
+import rex.service.mapper.TypeMapper;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
