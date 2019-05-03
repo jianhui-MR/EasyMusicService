@@ -1,14 +1,16 @@
-package rex.service.Service;
+package rex.service.service;
 
 import org.springframework.web.multipart.MultipartFile;
-import rex.service.Bean.User;
-import rex.service.Mapper.UserMapper;
+import rex.service.bean.User;
+import rex.service.mapper.UserMapper;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import rex.service.token.TokenProccessor;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,7 +21,7 @@ import java.util.Random;
 public class UserService {
 
     @Autowired
-    private UserMapper mapper;
+    UserMapper mapper;
 
     @Autowired
     private JavaMailSender mailSender;
@@ -30,13 +32,16 @@ public class UserService {
      * @param password 密码
      * @return
      */
-    public JSONObject login(@NotNull String account,@NotNull String password){
+    public JSONObject login(@NotNull String account, @NotNull String password, HttpSession session){
         JSONObject object=new JSONObject();
+        String token= TokenProccessor.getInstance().makeToken();
+        session.setAttribute("token",token);
         try{
             User user=mapper.getLoginUserInfo(account,password);
             object.put("status",0);
             object.put("userName",user.getName());
             object.put("userAccount",user.getAccount());
+            object.put("token",token);
         }catch (Exception e) {
             e.printStackTrace();
             object.put("status", 1);
@@ -144,7 +149,7 @@ public class UserService {
 
         JSONObject jsonObject=new JSONObject();
         try{
-//            Mapper.setUserHeadSculpture(account,headSculpture);
+//            mapper.setUserHeadSculpture(account,headSculpture);
             File file=new File("C:/EasyMusic/headSculpture/"+account+".jpg");
             File path=new File("C:/EasyMusic/headSculpture/");
             if (!path.exists()){

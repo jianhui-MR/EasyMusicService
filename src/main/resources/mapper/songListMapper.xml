@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="rex.service.Mapper.SongListMapper" >
+<mapper namespace="rex.service.mapper.SongListMapper" >
     <insert id="addTypeSongList">
         insert
         into songlist(typeId,songId,songName,singer,coverUrl,lrcUrl,audioUrl,album,time)
@@ -11,7 +11,7 @@
                 #{album,jdbcType=VARCHAR},#{time,jdbcType=BIGINT})
     </insert>
 
-    <select id="getTypeSongList" resultType="rex.service.Bean.Song">
+    <select id="getTypeSongList" resultType="rex.service.bean.Song">
         select *
         from songlist
         where typeId=#{typeId,jdbcType=INTEGER}

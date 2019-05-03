@@ -1,8 +1,8 @@
-package rex.service.Util;
+package rex.service.util;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import rex.service.Bean.Song;
+import rex.service.bean.Song;
 
 import java.util.List;
 

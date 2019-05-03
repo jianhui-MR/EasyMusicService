@@ -1,14 +1,17 @@
-package rex.service.Controller;
+package rex.service.controller;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.multipart.MultipartFile;
-import rex.service.Service.UserService;
+import rex.service.service.UserService;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 
 @RestController
@@ -18,9 +21,17 @@ public class UserController {
     @Autowired
     private UserService service;
 
+    @RequestMapping("/toLogin")
+    public JSONObject toLogin(){
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put("status",9);
+        return jsonObject;
+    }
+
     @RequestMapping("/loginUser")
-    public JSONObject login(@RequestParam("account")String account,@RequestParam("password")String password){
-        return service.login(account,password);
+    public JSONObject login(@RequestParam("account")String account, @RequestParam("password")String password, HttpServletRequest request){
+        HttpSession session=request.getSession(true);
+        return service.login(account,password,session);
     }
 
     @RequestMapping(value = "/registerUser",method = RequestMethod.POST)

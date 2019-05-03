@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="rex.service.Mapper.TypeMapper">
+<mapper namespace="rex.service.mapper.TypeMapper">
     <insert id="addType">
         INSERT
         INTO type(userAccount,type)
@@ -12,7 +12,7 @@
         from type
         where typeId=#{typeId,jdbcType=INTEGER}
     </delete>
-    <select id="getType" resultType="rex.service.Bean.Type">
+    <select id="getType" resultType="rex.service.bean.Type">
         select *
         from type
         where userAccount=#{userAccount,jdbcType=VARCHAR}
