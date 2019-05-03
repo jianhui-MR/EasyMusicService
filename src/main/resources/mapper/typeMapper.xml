@@ -38,4 +38,10 @@
         limit 1
     </select>
 
+    <delete id="deleteTypeSongList" >
+        delete
+        from songList
+        where typeId=#{typeId,jdbcType=INTEGER}
+    </delete>
+
 </mapper>

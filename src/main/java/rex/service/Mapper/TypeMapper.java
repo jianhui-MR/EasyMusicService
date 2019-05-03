@@ -18,6 +18,9 @@ public interface TypeMapper {
     //删除自定义列表
     void deleteType(int typeId);
 
+    //删除自定义歌单里的所有歌曲
+    void deleteTypeSongList(int typeId);
+
     //修改自定义列表名字
     void updateType(int typeId,String type);
 

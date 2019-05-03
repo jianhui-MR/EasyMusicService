@@ -39,6 +39,7 @@ public class TypeService {
         JSONObject jsonObject=new JSONObject();
         try{
             mapper.deleteType(typeId);
+            mapper.deleteTypeSongList(typeId);
             jsonObject.put("status",0);
         }catch (Exception e){
             e.printStackTrace();
